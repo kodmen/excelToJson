@@ -82,7 +82,7 @@ public class main {
     }
 
     public static void main(String[] args) throws IOException {
-        String filepath = "/Users/bedir/Desktop/library/ExcelTojson/src/main/java/com/morphosium/ldd-lang.xlsx";
+        String filepath = "/Users/bedir/Desktop/excelToJson/ldd-lang.xlsx";
 
         FileInputStream file = new FileInputStream(new File(filepath));
         Workbook workbook = new XSSFWorkbook(file);

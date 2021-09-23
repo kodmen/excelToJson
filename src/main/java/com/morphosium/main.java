@@ -7,11 +7,9 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.json.simple.JSONObject;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.HashMap;
+
 
 public class main {
 
@@ -82,18 +80,28 @@ public class main {
     }
 
     public static void main(String[] args) throws IOException {
-        String filepath = "you shoul write file path";
 
-        FileInputStream file = new FileInputStream(new File(filepath));
-        Workbook workbook = new XSSFWorkbook(file);
+        if (args.length > 0) {
+            try {
+                FileInputStream file = new FileInputStream(new File(args[0]));
+                Workbook workbook = new XSSFWorkbook(file);
 
-        JSONObject test = new JSONObject();
+                JSONObject test = new JSONObject();
 
-        int totalLanguage = searchLenguage(workbook).size();
-        for (int i = 1; i < searchLenguage(workbook).size(); i++) {
-            getKeyValue(workbook, i, test);
-            createJsonFile(searchLenguage(workbook).get(i).toString(), test);
-            test = new JSONObject();
+                int totalLanguage = searchLenguage(workbook).size();
+                for (int i = 1; i < searchLenguage(workbook).size(); i++) {
+                    getKeyValue(workbook, i, test);
+                    createJsonFile(searchLenguage(workbook).get(i).toString(), test);
+                    test = new JSONObject();
+                }
+            } catch (
+                    FileNotFoundException e) {
+                System.out.println("dosya yok ");
+
+            }
+        } else {
+            System.out.println("lütfen dosya giriniz");
         }
+
     }
 }

@@ -2,7 +2,7 @@
 
 ## excel format
 
-| key | language-1  | language-2   |   |   |
+| Key | language-1  | language-2   |   |   |
 |-----|-------------|--------------|---|---|
 | id  | language-id | language2-id |   |   |
 |     |             |              |   |   |
@@ -10,7 +10,7 @@
 
 ## example
 
-| key | en  | tr   | 
+| Key | en  | tr   | 
 |-----|-------------|--------------|
 | title  | hello | merhaba | 
 | country    |   Turkey         |     türkiye         |  
@@ -36,3 +36,14 @@ tr.json
   "paragraph": " Java için modern web uygulama platformu"
 }
 ```
+
+## to get the jar of the project
+1. git clone project
+2. proje build
+3. mvn clean package  
+4. maven jar:jar
+5. target/ExcelTojson-1.0-jar-with-dependencies.jar will be created
+
+## to run the project
+. java -jar ${jar-file}.jar ${excel-file}.xlxs
+
